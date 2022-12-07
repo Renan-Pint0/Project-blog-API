@@ -18,8 +18,16 @@ const getAll = async () => {
   return result;
 };
 
+const getById = async (id) => {
+  const result = await User.findByPk(id, {
+    attributes: ['id', 'displayName', 'email', 'image'],
+  });
+  return result;
+};
+
 module.exports = {
   createUser,
   getUser,
   getAll,
+  getById,
 };
