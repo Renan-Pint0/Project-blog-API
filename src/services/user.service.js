@@ -11,7 +11,15 @@ const getUser = async (email) => {
   return user;
 };
 
+const getAll = async () => {
+  const result = await User.findAll({
+    attributes: ['id', 'displayName', 'email', 'image'],
+  });
+  return result;
+};
+
 module.exports = {
   createUser,
   getUser,
+  getAll,
 };
